@@ -2,6 +2,10 @@ import torch
 from torch import nn
 from d2l import torch as d2l
 
+import matplotlib.pyplot as plt
+import os
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+
 #为了支持多线程，添加以下库
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
@@ -38,6 +42,10 @@ loss = nn.CrossEntropyLoss(reduction='mean')
 num_epochs, lr = 10, 0.1
 updater = torch.optim.SGD(params, lr=lr)
 d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, updater)
+plt.show()
+
+d2l.predict_ch3(net, test_iter)
+plt.show()
 
 
 
